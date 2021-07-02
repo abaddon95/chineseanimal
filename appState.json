@@ -1,0 +1,126 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "31a8bc69-bbe8-4744-9ac1-f2071851ed48": {
+        "id": "31a8bc69-bbe8-4744-9ac1-f2071851ed48",
+        "parent": null,
+        "name": "ChineseAnimal.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "ChineseAnimal.js",
+        "cursor": {
+          "lineNumber": 36,
+          "column": 6
+        },
+        "config": {
+          "runtime": "nodejs10.x",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": [],
+          "name": "ChineseAnimal"
+        },
+        "triggers": [
+          {
+            "resourceName": "alexaSK342bcaa04f63413ea5089dc549e38adc",
+            "config": {}
+          }
+        ],
+        "lastUpdated": 1625211747783
+      },
+      "db61eb9b-1621-48d0-8cab-0953a7e452fe": {
+        "id": "db61eb9b-1621-48d0-8cab-0953a7e452fe",
+        "parent": null,
+        "name": "package.json",
+        "type": "JSON_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "package.json",
+        "lastUpdated": 1625140267744
+      }
+    },
+    "openFiles": [
+      "31a8bc69-bbe8-4744-9ac1-f2071851ed48",
+      "db61eb9b-1621-48d0-8cab-0953a7e452fe"
+    ],
+    "currentFileId": "31a8bc69-bbe8-4744-9ac1-f2071851ed48",
+    "resources": {
+      "alexaSK342bcaa04f63413ea5089dc549e38adc": {
+        "name": "alexaSK342bcaa04f63413ea5089dc549e38adc",
+        "type": "ALEXA",
+        "config": {
+          "type": 1,
+          "verifiedID": true,
+          "skillID": "amzn1.ask.skill.342bcaa0-4f63-413e-a508-9dc549e38adc",
+          "applicationID": ""
+        }
+      }
+    },
+    "customTemplate": {
+      "syntax": "JSON",
+      "overrideDefault": false,
+      "dialect": "CloudFormation",
+      "definitions": null
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "ask-sdk": {
+          "name": "ask-sdk",
+          "language": "nodejs",
+          "version": "2.7.0",
+          "dev": false,
+          "notRemovable": false
+        },
+        "ask-sdk-model": {
+          "name": "ask-sdk-model",
+          "version": "1.35.1",
+          "dev": false,
+          "language": "nodejs"
+        },
+        "ask-sdk-core": {
+          "name": "ask-sdk-core",
+          "version": "2.10.2",
+          "dev": false,
+          "language": "nodejs"
+        },
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "version": "2.937.0",
+          "dev": false,
+          "language": "nodejs"
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "sigmaVersion": "1.8.0",
+    "projectName": "ChineseAnimal",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "eu-west-1",
+    "platform": "AWS",
+    "language": "nodejs",
+    "platformRegions": {},
+    "lastSave": 1625212233658
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "chineseanimal",
+      "url": "https://github.com/abaddon95/chineseanimal"
+    }
+  }
+}
