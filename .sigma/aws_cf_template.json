@@ -23,6 +23,25 @@
     }
   },
   "Resources": {
+    "ddbChineseZodiacAnimal": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "TableName": "ChineseZodiacAnimal",
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "BirthYear",
+            "AttributeType": "N"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "BirthYear",
+            "KeyType": "HASH"
+          }
+        ],
+        "BillingMode": "PAY_PER_REQUEST"
+      }
+    },
     "ChineseAnimal": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -39,7 +58,7 @@
         "MemorySize": 128,
         "Handler": "ChineseAnimal.handler",
         "Timeout": 60,
-        "Runtime": "nodejs10.x",
+        "Runtime": "nodejs12.x",
         "Layers": [],
         "TracingConfig": {
           "Mode": "PassThrough"
@@ -80,7 +99,29 @@
               }
             }
           ]
-        }
+        },
+        "Policies": [
+          {
+            "PolicyName": "ChineseAnimalPolicy",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "dynamodb:GetItem"
+                  ],
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "ddbChineseZodiacAnimal",
+                      "Arn"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     "alexaSK342bcaa04f63ChineseAnimalPermission": {

@@ -11,11 +11,11 @@
         "isRemovable": true,
         "filePath": "ChineseAnimal.js",
         "cursor": {
-          "lineNumber": 36,
-          "column": 6
+          "lineNumber": 80,
+          "column": 3
         },
         "config": {
-          "runtime": "nodejs10.x",
+          "runtime": "nodejs12.x",
           "handler": "handler",
           "timeout": 60,
           "memory": 128,
@@ -28,7 +28,7 @@
             "config": {}
           }
         ],
-        "lastUpdated": 1625211747783
+        "lastUpdated": 1625479064875
       },
       "db61eb9b-1621-48d0-8cab-0953a7e452fe": {
         "id": "db61eb9b-1621-48d0-8cab-0953a7e452fe",
@@ -39,7 +39,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "package.json",
-        "lastUpdated": 1625140267744
+        "lastUpdated": 1625214562505
       }
     },
     "openFiles": [
@@ -56,6 +56,37 @@
           "verifiedID": true,
           "skillID": "amzn1.ask.skill.342bcaa0-4f63-413e-a508-9dc549e38adc",
           "applicationID": ""
+        }
+      },
+      "ddbChineseZodiacAnimal": {
+        "name": "ddbChineseZodiacAnimal",
+        "type": "DynamoDB",
+        "config": {
+          "mode": 0,
+          "table": {
+            "arn": "",
+            "name": "ChineseZodiacAnimal",
+            "partitionKey": "BirthYear",
+            "partitionKeyType": "N",
+            "hasSortKey": false,
+            "sortKey": "Animal",
+            "sortKeyType": "S",
+            "payPerRequest": true,
+            "mode": 0
+          },
+          "isGlobalEditMode": true,
+          "parameters": {
+            "Key": {},
+            "Item": {},
+            "ExpressionAttributeValues": {},
+            "IndexName": ""
+          },
+          "triggerParams": {},
+          "validator": {
+            "validatableFields": {},
+            "validity": true
+          },
+          "valid": true
         }
       }
     },
@@ -98,9 +129,10 @@
         },
         "aws-sdk": {
           "name": "aws-sdk",
-          "version": "2.937.0",
-          "dev": false,
-          "language": "nodejs"
+          "language": "nodejs",
+          "version": "2.817.0",
+          "dev": true,
+          "notRemovable": false
         }
       }
     }
@@ -114,7 +146,7 @@
     "platform": "AWS",
     "language": "nodejs",
     "platformRegions": {},
-    "lastSave": 1625212233658
+    "lastSave": 1625480033344
   },
   "VCS_STATE": {
     "provider": "GitHub",

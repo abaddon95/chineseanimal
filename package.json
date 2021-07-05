@@ -4,5 +4,8 @@
         "ask-sdk-model": "1.35.1",
         "ask-sdk-core": "2.10.2",
         "aws-sdk": "2.937.0"
+    },
+    "devDependencies": {
+        "aws-sdk": "2.817.0"
     }
 }

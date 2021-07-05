@@ -1,3 +1,5 @@
+const AWS = require('aws-sdk');
+const ddb = new AWS.DynamoDB.DocumentClient();
 const Alexa = require('ask-sdk');
 let skill;
 
@@ -7,11 +9,6 @@ exports.handler = async function (event, context) {
         skill = Alexa.SkillBuilders.custom()
             .addErrorHandlers(ErrorHandler)
             .addRequestHandlers(
-                // delete undefined built-in intent handlers
-                CancelIntentHandler,
-                HelpIntentHandler,
-                StopIntentHandler,
-                FallbackIntentHandler,
                 LaunchRequestHandler,
                 ChineseAnimalIntentHandler
                 // add custom Intent handlers
@@ -41,11 +38,24 @@ const ChineseAnimalIntentHandler = {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && handlerInput.requestEnvelope.request.intent.name === 'ChineseAnimalIntent';
     },
-    handle(handlerInput) {
+    async handle(handlerInput) {
         // invoke custom logic of the handler
         const year = Number(Alexa.getSlotValue(handlerInput.requestEnvelope, 'year'));
-        
-        const speechText = 'This is my custom intent handler' + year;
+        let speechText = "none";
+        try {
+            let data = await ddb.get({
+                TableName: "ChineseZodiacAnimal",
+                Key: {
+                    BirthYear: year
+                }
+            }).promise();
+
+            speechText = "your animal is a" + data.Item.Animal;
+
+        } catch (error) {
+            speechText = "I don\'t know"
+        };
+
         return handlerInput.responseBuilder
             .speak(speechText)
             .withShouldEndSession(false)
@@ -68,3 +78,28 @@ const ErrorHandler = {
             .getResponse();
     }
 };
+exports.handler = async function (event, context) {
+    //console.log('REQUEST ' + JSON.stringify(event));
+    if (!skill) {
+        skill = Alexa.SkillBuilders.custom()
+            .addErrorHandlers(ErrorHandler)
+            .addRequestHandlers(
+                // delete undefined built-in intent handlers
+                CancelIntentHandler,
+                HelpIntentHandler,
+                StopIntentHandler,
+                NavigateHomeIntentHandler,
+                FallbackIntentHandler,
+                LaunchRequestHandler,
+                SessionEndedRequestHandler
+                // add custom Intent handlers
+            ).create();
+    }
+
+    const response = await skill.invoke(event, context);
+    //console.log('RESPONSE :' + JSON.stringify(response));
+    return response;
+};
+
+//--------------------------------------------------------------------------
+
